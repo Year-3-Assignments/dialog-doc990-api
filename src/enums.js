@@ -24,4 +24,7 @@ export default {
     DELETE_SUCCESS: 'Doctor details delete successfully',
     DELETE_ERROR: 'Error with delete Doctor details',
   },
+  request: {
+    PARAMETER_MISSING: 'Request parameter is required',
+  },
 };

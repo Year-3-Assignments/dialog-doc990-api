@@ -6,6 +6,11 @@ const DoctorSchema = new Schema({
     required: [true, 'Doctor name is required'],
     trim: true,
   },
+  imageUrl: {
+    type: String,
+    required: [true, 'Profile image is required'],
+    trim: true,
+  },
   specialization: {
     type: String,
     required: [true, 'Specilization is required'],
