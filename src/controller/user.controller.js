@@ -59,13 +59,10 @@ export async function loginUser(req, res) {
         const TOKEN = await user.generateAuthToken();
         let responseData = {
           user_id: user._id,
-        name: user.name,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        nic: user.nic,
-        password: user.password,
-        token: TOKEN,
-        role: user.role,
+          phoneNumber: user.phoneNumber,
+          password: user.password,
+          token: TOKEN,
+          role: user.role,
         };
         return resolve({ responseData });
       } catch (error) {
