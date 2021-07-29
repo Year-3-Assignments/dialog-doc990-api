@@ -15,5 +15,13 @@ export default {
   },
   doctor: {
     NOT_FOUND: 'Doctor details not found',
+    SEARCH_SUCCESS: 'Search doctors successfull',
+    SEARCH_ERROR: 'Error with search doctors',
+    CREATE_SUCCESS: 'Doctor added successfully',
+    CREATE_ERROR: 'Error with adding doctor',
+    UPDATE_SUCCESS: 'Doctor details update successfully',
+    UPDATE_ERROR: 'Error with update Doctor details',
+    DELETE_SUCCESS: 'Doctor details delete successfully',
+    DELETE_ERROR: 'Error with delete Doctor details',
   },
 };
