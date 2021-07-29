@@ -64,11 +64,11 @@ UserSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-UserSchema.statics.findByUsernamePassword = async function (
-  userName,
+UserSchema.statics.findByPhoneNoPassword = async function (
+  phoneNumber,
   password
 ) {
-  const user = await User.findOne({ userName });
+  const user = await User.findOne({ phoneNumber });
   if (!user) {
     throw new Error('User not found');
   }
