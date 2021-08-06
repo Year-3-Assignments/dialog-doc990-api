@@ -14,6 +14,8 @@ export default {
     DELETE_ERROR: 'Error with delete user account',
   },
   doctor: {
+    CREATE_SUCCESS: 'Doctor is created successfully',
+    CREATE_ERROR: 'Doctor details are not inserted Successfully',
     NOT_FOUND: 'Doctor details not found',
   },
 };
