@@ -1,4 +1,4 @@
-import { addDoctor } from './controller/doctor.controller';
+import { addDoctor, getAllDoctors } from './controller/doctor.controller';
 import { createUser, loginUser } from './controller/user.controller';
 
 export default function (app) {
@@ -8,4 +8,5 @@ export default function (app) {
 
   //Doctor API endpoints
   app.post('/doctor/create', addDoctor);
+  app.get('/doctors', getAllDoctors);
 }
