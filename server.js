@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import {
   DEVELOPMENT_PORT,
@@ -15,6 +16,7 @@ const app = express();
 const ENVIRONMENT = process.env.NODE_ENV || 'production';
 let PORT;
 let mongoUri;
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
