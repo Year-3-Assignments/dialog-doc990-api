@@ -1,6 +1,7 @@
 import { addDoctor, getAllDoctors } from './controller/doctor.controller';
 import { createUser, loginUser } from './controller/user.controller';
 import { createAppoinment, getAppoinments } from './controller/appoinment.controller';
+import { createRefund, getRefund } from './controller/refund.controller';
 
 export default function (app) {
   // User API endpoints
@@ -18,5 +19,9 @@ export default function (app) {
     //Appoinment API endpoints
     app.post('/appoinment/create', createAppoinment);
     app.get('/appoinment', getAppoinments);
+
+    //Appoinment API endpoints
+    app.post('/refund/create', createRefund);
+    app.get('/refund', getRefund);
 
 }

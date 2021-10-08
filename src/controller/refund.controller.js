@@ -1,10 +1,10 @@
-import Appoinment from '../model/Appoinment';
+import Refund from '../model/Refund';
 import responseHandler from '../response/response.handler';
 
-export async function createAppoinment(req, res) {
+export async function createRefund(req, res) {
 
-    const appoinment = new Appoinment(req.body);
-    appoinment
+    const refund = new Refund(req.body);
+    refund
       .save()
       .then(async (data) => {
         responseHandler.respond(res, data);
@@ -15,11 +15,11 @@ export async function createAppoinment(req, res) {
 
 }
 
-export async function getAppoinments(req, res) {
+export async function getRefund(req, res) {
 
     new Promise(async (resolve, reject) => {
-      let appoinment = await Appoinment.find({ phoneNumber: req.body.phoneNumber });
-      return resolve({ appoinment });
+      let refund = await Refund.find({ phoneNumber: req.body.phoneNumber });
+      return resolve({ refund });
     })
       .then((data) => {
         responseHandler.respond(res, data);
