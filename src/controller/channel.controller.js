@@ -11,7 +11,12 @@ export function addChannel(req, res) {
       phoneNumber: req.body.phoneNumber,
       nic: req.body.nic,
       channelDoctor: req.body.channelDoctor,
-      dateTime: req.body.dateTime,
+      hospital: req.body.hospital,
+      city: req.body.city,
+      province: req.body.province,
+      address: req.body.address,
+      isChargeChecked: req.body.isChargeChecked,
+      isPDFCheck: req.body.isPDFCheck,
     };
 
     let doctor = await Doctor.findById(req.body.channelDoctor);

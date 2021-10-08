@@ -1,5 +1,5 @@
 export default {
-  respond: function (res, data, status = 201) {
+  respond: function (res, data, status = 200) {
     if (data === null) {
       return res.status(404).json({ status: 404, message: 'Data Not Found!' });
     } else {

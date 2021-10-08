@@ -8,8 +8,8 @@ export function searchDoctors(req, res) {
     const { name, specialization, date, hospital } = req.body;
     const doctors = await Doctor.find({
       $or: [
-        { name: { $regex: name } },
-        { specialization: { $regex: specialization } },
+        { name: { $regex: `${name}` } },
+        { specialization: { $regex: `${specialization}` } },
         { 'availableDetails.dateTime': date },
         { 'availableDetails.hospitalName': hospital },
       ],
@@ -39,6 +39,7 @@ export function addDoctor(req, res) {
       specialization: req.body.specialization,
       availableDetails: req.body.availableDetails,
       notes: req.body.notes,
+      appointments: req.body.appointments,
     };
 
     let doctor = new Doctor(doctorDetails);
