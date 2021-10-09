@@ -115,3 +115,13 @@ export function deleteDoctor(req, res) {
     responseHandler.handleError(res, enums.request.PARAMETER_MISSING);
   }
 }
+
+export async function getAllDoctors() {
+  await Doctor.find({})
+    .then((doctors) => {
+      responseHandler.respond(res, data);
+    })
+    .catch((error) => {
+      response.handleError(res, error.message);
+    });
+}

@@ -36,5 +36,8 @@ export default {
   },
   request: {
     PARAMETER_MISSING: 'REQUEST PARAMETER IS REQUIRED',
+    CREATE_SUCCESS: 'Doctor is created successfully',
+    CREATE_ERROR: 'Doctor details are not inserted Successfully',
+    NOT_FOUND: 'Doctor details not found',
   },
 };
