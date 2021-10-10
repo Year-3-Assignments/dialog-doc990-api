@@ -10,6 +10,7 @@ const RefundSchema = new Schema(
     branchName: { type: String, required: false, trim: true },
     refundRemarks: { type: String, required: true, trim: true },
     phoneNumber: { type: String, required: false, trim: true },
+    amount: { type: Number, required: true },
     status: {
       type: String,
       enum: ['PENDING', 'COMPLETED'],

@@ -10,6 +10,21 @@ const UserSchema = new Schema(
       required: [true, 'Last name is required'],
       trim: true,
     },
+    gender: {
+      type: String,
+      required: [true, 'Gender is required'],
+      trim: true,
+    },
+    imageUrl: {
+      type: String,
+      required: [true, 'Image is required'],
+      trim: true,
+    },
+    country: {
+      type: String,
+      required: [true, 'Country is required'],
+      trim: true,
+    },
     email: {
       type: String,
       required: [true, 'Email is Required'],
@@ -41,7 +56,6 @@ const UserSchema = new Schema(
       required: [true, 'Password must be provided'],
       trim: true,
     },
-    token: { type: String },
   },
   {
     timestamps: true,

@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-const AppoinmentSchema = new Schema(
+const AppointmentSchema = new Schema(
   {
     time: {
       type: String,
@@ -45,22 +45,23 @@ const AppoinmentSchema = new Schema(
       trim: true,
     },
     hospitalName: {
-        type: String,
-        trim: true,
+      type: String,
+      trim: true,
     },
     date: {
-        type: String,
-        trim: true,
+      type: String,
+      trim: true,
     },
     totalAmount: {
-        type: String,
-    }
+      type: Number,
+    },
+    isAppointmentCancelled: { type: Boolean, required: false, default: false },
   },
   {
     timestamps: true,
   }
 );
 
-const Appoinment = mongoose.model('appoinment', AppoinmentSchema);
+const Appointment = mongoose.model('appointment', AppointmentSchema);
 
-export default Appoinment;
+export default Appointment;
