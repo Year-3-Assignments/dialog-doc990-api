@@ -1,88 +1,85 @@
 import User from '../model/User';
 import enums from '../enums';
 import responseHandler from '../response/response.handler';
-import LOG from './controller.log';
+import Log from '../log';
+
+const USER_PICTURE = {
+  MALE: 'https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/male.jpg?alt=media&token=36491e78-57c7-4869-81bc-f1d3480e6b39',
+  FEMALE:
+    'https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/female.jpg?alt=media&token=d07684cb-d4b4-41bb-bd7a-5080d01394c9',
+};
 
 export async function createUser(req, res) {
   if (req.body && req.body.phoneNumber) {
-    new Promise(async (resolve, reject) => {
-      let phoneNumber = req.body.phoneNumber;
-      let user = await User.findOne({ phoneNumber: phoneNumber });
+    let phoneNumber = req.body.phoneNumber;
+    let user = await User.findOne({ phoneNumber: phoneNumber });
 
-      if (user) {
-        return resolve(enums.user.ALREADY_EXIST);
-      }
+    if (user) {
+      return res.status(400).json('User already exists');
+    }
 
-      user = new User(req.body);
-      await user.save();
-      const TOKEN = await user.generateAuthToken();
-      let responseData = {
-        user_id: user._id,
-        name: user.name,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        nic: user.nic,
-        password: user.password,
-        token: TOKEN,
-        role: user.role,
-      };
-      return resolve({ responseData, TOKEN });
-    })
+    const userData = {
+      name: req.body.name,
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+      gender: req.body.gender,
+      password: req.body.password,
+      imageUrl:
+        req.body.gender === 'Male' ? USER_PICTURE.MALE : USER_PICTURE.FEMALE,
+      country: req.body.country,
+      nic: req.body.nic,
+    };
+
+    user = new User(userData);
+    await user
+      .save()
       .then((data) => {
-        if (data === enums.user.ALREADY_EXIST) {
-          LOG.warn(enums.user.ALREADY_EXIST);
-        } else {
-          LOG.info(enums.user.CREATE_SUCCESS);
-        }
-
-        responseHandler.respond(res, data);
+        let responseData = {
+          user_id: data._id,
+          name: user.name,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+        };
+        res.status(200).json(responseData);
       })
       .catch((error) => {
-        LOG.info(enums.user.CREATE_ERROR);
-        responseHandler.handleError(res, error.message);
+        res.status(500).json(error.message);
       });
   }
+}
+
+export async function getUserProfile(req, res) {
+  await User.findOne(
+    { phoneNumber: req.headers.phonenumber },
+    function (error, docs) {
+      if (error) {
+        Log.error(error.message);
+        return res.status(500).json(error.message);
+      } else {
+        Log.info('User account fetched successfully');
+        return res.status(200).json(docs);
+      }
+    }
+  );
 }
 
 export async function loginUser(req, res) {
   if (req.body && req.body.phoneNumber && req.body.password) {
     let { phoneNumber, password } = req.body;
 
-    new Promise(async (resolve, reject) => {
-      try {
-        let user = await User.findByPhoneNoPassword(phoneNumber, password);
+    let user = await User.findByPhoneNoPassword(phoneNumber, password);
 
-        if (!user) {
-          return resolve(enums.user.NOT_FOUND);
-        }
+    if (!user) {
+      return res.status(404).json(enums.user.NOT_FOUND);
+    }
 
-        const TOKEN = await user.generateAuthToken();
-        let responseData = {
-          user_id: user._id,
-          phoneNumber: user.phoneNumber,
-          password: user.password,
-          token: TOKEN,
-          role: user.role,
-        };
-        return resolve({ responseData });
-      } catch (error) {
-        return resolve(error.message);
-      }
-    })
-      .then((data) => {
-        if (data === enums.user.NOT_FOUND) {
-          LOG.warn(enums.user.NOT_FOUND);
-        } else if (data === enums.user.PASSWORD_NOT_MATCH) {
-          LOG.warn(enums.user.PASSWORD_NOT_MATCH);
-        } else {
-          LOG.info(enums.user.LOGIN_SUCCESS);
-        }
-        responseHandler.respond(res, data);
-      })
-      .catch((error) => {
-        LOG.info(enums.user.LOGIN_ERROR);
-        responseHandler.handleError(res, error.message);
-      });
+    let responseData = {
+      user_id: user._id,
+      name: user.name,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+    };
+    return res.status(200).json(responseData);
   } else {
     return responseHandler.handleError(res, enums.user.CREDENTIAL_REQUIRED);
   }

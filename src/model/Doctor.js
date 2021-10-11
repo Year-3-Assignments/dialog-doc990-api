@@ -6,6 +6,11 @@ const DoctorSchema = new Schema({
     required: [true, 'Doctor name is required'],
     trim: true,
   },
+  imageUrl: {
+    type: String,
+    required: [true, 'Profile image is required'],
+    trim: true,
+  },
   specialization: {
     type: String,
     required: [true, 'Specilization is required'],
@@ -17,6 +22,10 @@ const DoctorSchema = new Schema({
         type: String,
         required: [true, 'Hospital name is required'],
         trim: true,
+      },
+      doctorCharge: {
+        type: Number,
+        required: [true, 'Doctor charge is required'],
       },
       dateTime: {
         type: Date,
@@ -32,6 +41,10 @@ const DoctorSchema = new Schema({
       trim: true,
     },
   ],
+  appointments: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Doctor = mongoose.model('doctors', DoctorSchema);

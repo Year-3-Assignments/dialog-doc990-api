@@ -1,0 +1,164 @@
+[
+  {
+    "name": "Nimal Perera",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/male.jpg?alt=media&token=36491e78-57c7-4869-81bc-f1d3480e6b39",
+    "specialization": "Allergy and immunology",
+    "availableDetails": [
+      {
+        "hospitalName": "Asia Hospital - Kotte",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "Asia Hospital - Maharagama",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "Body Doc Medicare - Malabe",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      }
+    ],
+    "appointments": 12,
+    "notes": ["MBBS in University of Colombo"]
+  },
+
+  {
+    "name": "Namali Rathnayake",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/female.jpg?alt=media&token=d07684cb-d4b4-41bb-bd7a-5080d01394c9",
+    "specialization": "Ophthalmology",
+    "availableDetails": [
+      {
+        "hospitalName": "Asiri Central Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "Asia Hospital - Maharagama",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "CDEM Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      }
+    ],
+    "appointments": 4,
+    "notes": ["MBBS in University of Colombo"]
+  },
+
+  {
+    "name": "Kalindu Karunarathne",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/male.jpg?alt=media&token=36491e78-57c7-4869-81bc-f1d3480e6b39",
+    "specialization": "Ophthalmology",
+    "availableDetails": [
+      {
+        "hospitalName": "Asiri Central Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "Asia Hospital - Maharagama",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "CDEM Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      }
+    ],
+    "appointments": 11,
+    "notes": ["MBBS in University of Colombo"]
+  },
+
+  {
+    "name": "Amal Doluweera",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/male.jpg?alt=media&token=36491e78-57c7-4869-81bc-f1d3480e6b39",
+    "specialization": "Radiation oncology",
+    "availableDetails": [
+      {
+        "hospitalName": "Asiri Hospital - Kandy",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "Asia Hospital - Kotte",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      }
+    ],
+    "appointments": 11,
+    "notes": ["MBBS in University of Colombo"]
+  },
+
+  {
+    "name": "Kavindi Disanayake",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/female.jpg?alt=media&token=d07684cb-d4b4-41bb-bd7a-5080d01394c9",
+    "specialization": "Ophthalmology",
+    "availableDetails": [
+      {
+        "hospitalName": "Asiri Central Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "CDEM Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      }
+    ],
+    "appointments": 4,
+    "notes": ["MBBS in University of Colombo"]
+  },
+  {
+    "name": "Namali Rathnayake",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/female.jpg?alt=media&token=d07684cb-d4b4-41bb-bd7a-5080d01394c9",
+    "specialization": "Physical medicine and rehabilitation",
+    "availableDetails": [
+      {
+        "hospitalName": "Asiri Central Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "Asia Hospital - Maharagama",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "CDEM Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      }
+    ],
+    "appointments": 4,
+    "notes": ["MBBS in University of Colombo"]
+  },
+  {
+    "name": "Namali Perera",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/shopping-storage-22f5f.appspot.com/o/female.jpg?alt=media&token=d07684cb-d4b4-41bb-bd7a-5080d01394c9",
+    "specialization": "Ophthalmology",
+    "availableDetails": [
+      {
+        "hospitalName": "Asiri Central Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "Asia Hospital - Maharagama",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      },
+      {
+        "hospitalName": "CDEM Hospital - Colombo 10",
+        "doctorCharge": 1000,
+        "dateTime": "2021-10-12"
+      }
+    ],
+    "appointments": 4,
+    "notes": ["MBBS in University of Colombo"]
+  }
+]

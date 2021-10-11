@@ -1,27 +1,40 @@
-import { addDoctor, getAllDoctors } from './controller/doctor.controller';
-import { createUser, loginUser } from './controller/user.controller';
-import { createAppoinment, getAppoinments } from './controller/appoinment.controller';
-import { createRefund, getRefund } from './controller/refund.controller';
+import {
+  addDoctor,
+  searchDoctors,
+  updateDoctor,
+  deleteDoctor,
+  getAllDoctors,
+} from './controller/doctor.controller';
+
+import {
+  createUser,
+  loginUser,
+  getUserProfile,
+} from './controller/user.controller';
+import {
+  createAppointment,
+  getAppointmentForUser,
+  cancelAppointment,
+} from './controller/appointment.controller';
+import {
+  createRefund,
+  getRefundsForUser,
+} from './controller/refund.controller';
 
 export default function (app) {
-  // User API endpoints
+  app.post('/doctor/add', addDoctor);
+  app.post('/doctor/search', searchDoctors);
+  app.put('/doctor/update/:id', updateDoctor);
+  app.delete('/doctor/delete/:id', deleteDoctor);
+  // User API endpoints - @Tested
   app.post('/user/create', createUser);
   app.post('/user/login', loginUser);
-
-  //Doctor API endpoints
-  app.post('/doctor/create', addDoctor);
-  app.get('/doctors', getAllDoctors);
-
-    //Appoinment API endpoints
-    app.post('/doctor/create', addDoctor);
-    app.get('/doctors', getAllDoctors);
-
-    //Appoinment API endpoints
-    app.post('/appoinment/create', createAppoinment);
-    app.get('/appoinment', getAppoinments);
-
-    //Appoinment API endpoints
-    app.post('/refund/create', createRefund);
-    app.get('/refund', getRefund);
-
+  app.get('/user/', getUserProfile);
+  //Appointment API endpoints - @Tested
+  app.post('/appointment/create', createAppointment);
+  app.get('/appointment/', getAppointmentForUser);
+  app.put('/appointment/cancel/', cancelAppointment);
+  //Appointment API endpoints
+  app.post('/refund/create', createRefund);
+  app.get('/refund', getRefundsForUser);
 }
