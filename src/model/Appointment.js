@@ -56,6 +56,8 @@ const AppointmentSchema = new Schema(
       type: Number,
     },
     isAppointmentCancelled: { type: Boolean, required: false, default: false },
+    specialization: { type: String, required: true },
+    doctorName: { type: String, required: true },
   },
   {
     timestamps: true,

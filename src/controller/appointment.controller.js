@@ -19,12 +19,14 @@ export async function createAppointment(req, res) {
     date: req.body.date,
     totalAmount: req.body.totalAmount,
     isAppointmentCancelled: false,
+    doctorName: req.body.doctorName,
+    specialization: req.body.specialization,
   };
 
   const paymentObj = {
     phoneNumber: req.body.phoneNumber,
     totalAmount: req.body.totalAmount,
-    lastFourDigits: req.body.cardNumber.substr(req.body.cardNumber.length - 4),
+    lastFourDigits: req.body.cardNumber.slice(req.body.cardNumber.length - 4),
     cardExpireDate: req.body.cardExpireDate,
   };
 
@@ -53,8 +55,9 @@ export async function createAppointment(req, res) {
 }
 
 export async function getAppointmentForUser(req, res) {
+  console.log(req.headers.phonenumber);
   await Appointment.find(
-    { phoneNumber: req.body.phoneNumber, isAppointmentCancelled: false },
+    { phoneNumber: req.headers.phonenumber, isAppointmentCancelled: false },
     function (error, docs) {
       if (error) {
         Log.error(error.message);

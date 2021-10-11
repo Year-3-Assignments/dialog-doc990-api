@@ -50,7 +50,7 @@ export async function createUser(req, res) {
 
 export async function getUserProfile(req, res) {
   await User.findOne(
-    { phoneNumber: req.body.phoneNumber },
+    { phoneNumber: req.headers.phonenumber },
     function (error, docs) {
       if (error) {
         Log.error(error.message);

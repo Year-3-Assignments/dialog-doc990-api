@@ -30,7 +30,7 @@ export async function createRefund(req, res) {
 
 export async function getRefundsForUser(req, res) {
   await Refund.find(
-    { phoneNumber: req.body.phoneNumber },
+    { phoneNumber: req.headers.phonenumber },
     function (error, docs) {
       if (error) {
         Log.error(error.message);
