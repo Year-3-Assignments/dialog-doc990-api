@@ -55,7 +55,6 @@ export async function createAppointment(req, res) {
 }
 
 export async function getAppointmentForUser(req, res) {
-  console.log(req.headers.phonenumber);
   await Appointment.find(
     { phoneNumber: req.headers.phonenumber, isAppointmentCancelled: false },
     function (error, docs) {
